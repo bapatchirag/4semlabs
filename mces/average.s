@@ -24,6 +24,7 @@ DIVIDE SUB R4, R4, R1
 	ADD R5, R5, #1	; Quotient of R4 / R1
 	CMP R4, #0
 	BGT DIVIDE
+	BLT _RESTORE
 
 ; Stops execution of code
 STOP B STOP
