@@ -12,6 +12,12 @@ LOOP ADD R4, R4, R3	; R4 = Sum of list elements
 	SUB R2, R2, #1
 	CMP R2, #0
 	BGT LOOP
+	B DIVIDE
+
+; Restore quotient and dividend if repeated subtraction result is negative
+_RESTORE SUB R5, R5, #1
+	ADD R4, R4, R1
+	B STOP
 
 ; Division = Repeated Subtraction
 DIVIDE SUB R4, R4, R1
