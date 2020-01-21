@@ -5,6 +5,7 @@
 	LDR R1, [R0]	; Number
 	MOVS R2, #0		; Number of ones
 	
+; Right shifts number by one bit, and adds it to R2, computing answer
 LOOP LSRS R1, #1
 	ADC R2, R2, #0
 	CMP R1, #0
