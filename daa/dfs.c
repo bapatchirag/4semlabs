@@ -4,8 +4,11 @@
 
 int comp_count = 0;
 int visited[SIZE], admat[SIZE][SIZE];
+int order[SIZE], f = 0, r = -1;
 
 void dfs(int, int); // Traverses through the graph, depth-first
+void addOrder(int); // Adds to order array
+void printList(int[], int); // Prints given array of given size
 
 int main()
 {
@@ -27,6 +30,7 @@ int main()
     {
         if(visited[i] == 0)
         {
+            addOrder(i);
             dfs(n, i);
             comp_count++;
         }
@@ -41,6 +45,9 @@ int main()
         printf("Disconnected graph with %d components\n", comp_count);
     }
 
+    printf("The DFS order is: \n");
+    printList(order, n);
+
     return 0;
 }
 
@@ -52,7 +59,37 @@ void dfs(int n, int v)
     {
         if(visited[x] == 0 && admat[v][x] == 1)
         {
+            addOrder(x);
             dfs(n, x);
         }
     }
+}
+
+void addOrder(int x)
+{
+    if(r == -1)
+    {
+        order[++r] = x;
+        return;
+    }
+
+    int i;
+    for(i = f; i <= r; i++)
+    {
+        if(order[i] == x)
+        {
+            return;
+        }
+    }
+    order[++r] = x;
+}
+
+void printList(int arr[], int n)
+{
+    int i;
+    for(i = 0; i < n; i++)
+    {
+        printf("%d\t", arr[i]);
+    }
+    printf("\n");
 }
