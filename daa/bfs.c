@@ -4,8 +4,11 @@
 
 int comp_count = 0;
 int visited[SIZE], admat[SIZE][SIZE];
+int order[SIZE], f = 0, r = -1;
 
 void bfs(int, int); // Traverses through the graph, breadth-first
+void addOrder(int); // Adds to order array
+void printList(int[], int); // Prints given array of given size
 
 int main()
 {
@@ -41,6 +44,9 @@ int main()
         printf("Disconnected graph with %d components\n", comp_count);
     }
 
+    printf("The BFS order is: \n");
+    printList(order, n);
+
     return 0;
 }
 
@@ -51,6 +57,7 @@ void bfs(int n, int v)
     visited[v] = 1;
 
     q[++r] = v;
+    addOrder(v);
 
     while(f <= r)
     {
@@ -62,7 +69,37 @@ void bfs(int n, int v)
             {
                 visited[x] = 1;
                 q[++r] = x;
+                addOrder(x);
             }
         }
     }
+}
+
+void addOrder(int x)
+{
+    if(r == -1)
+    {
+        order[++r] = x;
+        return;
+    }
+
+    int i;
+    for(i = f; i <= r; i++)
+    {
+        if(order[i] == x)
+        {
+            return;
+        }
+    }
+    order[++r] = x;
+}
+
+void printList(int arr[], int n)
+{
+    int i;
+    for(i = 0; i < n; i++)
+    {
+        printf("%d\t", arr[i]);
+    }
+    printf("\n");
 }
