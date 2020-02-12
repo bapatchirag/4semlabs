@@ -8,6 +8,7 @@ int order[SIZE], f = 0, r = -1;
 
 void bfs(int, int); // Traverses through the graph, breadth-first
 void addOrder(int); // Adds to order array
+int countVisited(int); // Counts visited vertices
 void printList(int[], int); // Prints given array of given size
 
 int main()
@@ -45,7 +46,7 @@ int main()
     }
 
     printf("The BFS order is: \n");
-    printList(order, n);
+    printList(order, countVisited(n));
 
     return 0;
 }
@@ -92,6 +93,20 @@ void addOrder(int x)
         }
     }
     order[++r] = x;
+}
+
+int countVisited(int n)
+{
+	int count = 0, i;
+	for(i = 0; i < n; i++)
+	{
+		if(visited[i] == 1)
+		{
+			count++;
+		}
+	}
+	
+	return count;	
 }
 
 void printList(int arr[], int n)
