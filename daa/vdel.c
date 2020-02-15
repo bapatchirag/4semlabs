@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #define SIZE 10
 
-int n;													// Number of vertices of graph
+int n;							// Number of vertices of graph
 int visited[SIZE], admat[SIZE][SIZE], indegree[SIZE];	// Visited, adjacency matrix and indegree lists
-int queue[SIZE], fq = 0, rq = -1;						// Queue of vertices with indegrees 0
-int order[SIZE], fo = 0, ro = -1;						// Topological order
+int queue[SIZE], fq = 0, rq = -1;			// Queue of vertices with indegrees 0
+int order[SIZE], fo = 0, ro = -1;			// Topological order
 
-void vertexdel();										// Main vertex deletion
-void printList(int[], int);								// Helper function to print list
-int countVisited();										// Helper function to count number of visited vertices
+void vertexdel();					// Main vertex deletion
+void printList(int[], int);				// Helper function to print list
+int countVisited();					// Helper function to count number of visited vertices
 
 int main()
 {
