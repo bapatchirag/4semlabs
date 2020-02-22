@@ -59,8 +59,7 @@ public class ArrayListOper
                 {
                     revlist.add(list.get(i));
                 }
-                System.out.print("The reversed list is: ");
-                System.out.println(revlist);
+                System.out.println("The reversed list is: " + revlist);
             }
             else if(ch == 5)
             {
@@ -73,17 +72,14 @@ public class ArrayListOper
             }
             else if(ch == 6)
             {
-                System.out.print("Unsorted list: ");
-                System.out.println(list);
+                System.out.println("Unsorted list: " + list);
                 Collections.sort(list);
-                System.out.print("After sorting: ");
-                System.out.println(list);
+                System.out.println("After sorting: " + list);
             }
             else if(ch == 7)
             {
                 ArrayList<String> cloned = (ArrayList<String>) list.clone();
-                System.out.print("Clone is: ");
-                System.out.println(cloned);
+                System.out.println("Clone is: " + cloned);
             }
             else if(ch == 8)
             {
