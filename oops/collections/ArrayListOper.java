@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.*;
 import java.io.*;
 
@@ -39,15 +38,19 @@ public class ArrayListOper
                 String colour = br.readLine();
                 list.add(colour);
                 System.out.println(colour + " is added to the list");
-                System.out.print("List is now: ");
-                System.out.println(list);
+                System.out.println("List is now: " + list);
             }
             else if(ch == 3)
             {
                 String[] newarr = new String[list.size()];
                 newarr = list.toArray(newarr);
-                System.out.print("The converted ArrayList is: ");
-                System.out.println(newarr);
+
+                System.out.print("The converted ArrayList is: {" + newarr[0]);
+                for(int i = 1; i < newarr.length; i++)
+                {
+                    System.out.print(", " + newarr[i]);
+                }
+                System.out.println("}");
             }
             else if(ch == 4)
             {
